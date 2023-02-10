@@ -16,6 +16,16 @@
     <properties>
         <java.version>1.8</java.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+    
+
+        <sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
+        <sonar.language>java</sonar.language>
+        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
+        <sonar.sources>src/main</sonar.sources>
+        <sonar.tests>src/test</sonar.tests>
+        <sonar.java.binaries>target/classes</sonar.java.binaries>
+        <sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
+ 
 </properties>
     <dependencies>
         <dependency>
@@ -54,7 +64,11 @@
             <version>3.0.0</version>
         </dependency>
 
-
+<dependency>
+    <groupId>org.jacoco</groupId> 
+    <artifactId>jacoco-maven-plugin</artifactId>
+    <version>0.8.6</version>
+</dependency>
 
     </dependencies>
 
@@ -78,9 +92,45 @@
                 </configuration>
             </plugin>
             
-          
-
+		          <plugin>
+			<groupId>org.jacoco</groupId>
+			<artifactId>jacoco-maven-plugin</artifactId>
+			<version>0.8.6</version>
+			<executions>
+				<execution>
+					<id>prepare-agent</id>
+					<goals>
+						<goal>prepare-agent</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>report</id>
+					<phase>prepare-package</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+				</execution>
+				<execution>
+					<id>post-unit-test</id>
+					<phase>test</phase>
+					<goals>
+						<goal>report</goal>
+					</goals>
+				
+				</execution>
+			</executions>
+		
+		</plugin>
+		
+			<plugin>
+               <groupId>org.sonarsource.scanner.maven</groupId>
+               <artifactId>sonar-maven-plugin</artifactId>
+               <version>3.7.0.1746</version>
+             </plugin>
         </plugins>
+        
+   
+ 
     </build>
 
 </project>

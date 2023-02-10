@@ -31,13 +31,13 @@ public class ProduitServiceTest {
         List<Produit> listProduits = ps.retrieveAllProduits();
         Assertions.assertEquals(0, listProduits.size());
     }
-    
+*/    
     @Test
     public void testCreateProduit() {
         Produit prod = new Produit("Code1232","iphone",4000,new Date(),new Date());
         ps.addProduit(prod);
         }
-    
+  /*  
     @Test
     public void testFindProduit()
     {

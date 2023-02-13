@@ -24,7 +24,7 @@ public class ProduitServiceTest {
     ProduitRepository produitRepository;
     
  
-/*
+
     @Test
     @Order(1)
     public void testRetrieveAllUsers() {
@@ -71,4 +71,4 @@ public class ProduitServiceTest {
     }
 
 
-*/}
+}

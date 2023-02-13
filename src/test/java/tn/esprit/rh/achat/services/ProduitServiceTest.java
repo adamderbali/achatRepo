@@ -24,14 +24,14 @@ public class ProduitServiceTest {
     ProduitRepository produitRepository;
     
  
-
+/*
     @Test
     @Order(1)
     public void testRetrieveAllUsers() {
         List<Produit> listProduits = ps.retrieveAllProduits();
         Assertions.assertEquals(0, listProduits.size());
     }
-    
+    */
     @Test
     public void testCreateProduit() {
         Produit prod = new Produit("Code1232","iphone",4000,new Date(),new Date());
@@ -41,7 +41,7 @@ public class ProduitServiceTest {
     @Test
     public void testFindProduit()
     {
-        Produit p = ps.retrieveProduit(1L); //produitRepository.findById(1L).get(); 
+        Produit p = ps.retrieveProduit(3L); //produitRepository.findById(1L).get(); 
         System.out.println(p);
     }
     

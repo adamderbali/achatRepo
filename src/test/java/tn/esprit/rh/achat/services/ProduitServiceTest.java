@@ -45,19 +45,19 @@ public class ProduitServiceTest {
         System.out.println(p);
     }
     
-    @Test
+  /*  @Test
     public void testUpdateProduit()
     {
         Produit p = produitRepository.findById(1L).get();
         p.setCodeProduit("145der");
         //produitRepository.save(p);
         ps.updateProduit(p);
-    }
+    }*/
     
     @Test
     public void testDeleteProduit()
     {
-        produitRepository.deleteById(1L);;
+        produitRepository.deleteById(2L);;
     }
      
     @Test

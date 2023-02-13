@@ -57,7 +57,7 @@ public class ProduitServiceTest {
     @Test
     public void testDeleteProduit()
     {
-        produitRepository.deleteById(2L);;
+        produitRepository.deleteById(3L);;
     }
      
     @Test

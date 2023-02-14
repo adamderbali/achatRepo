@@ -31,7 +31,7 @@ public class ProduitServiceTest {
         List<Produit> listProduits = ps.retrieveAllProduits();
         Assertions.assertEquals(0, listProduits.size());
     }
-    */
+    
     @Test
     public void testCreateProduit() {
         Produit prod = new Produit("Code1232","iphone",4000,new Date(),new Date());
@@ -45,14 +45,14 @@ public class ProduitServiceTest {
         System.out.println(p);
     }
     
-  /*  @Test
+    @Test
     public void testUpdateProduit()
     {
         Produit p = produitRepository.findById(1L).get();
         p.setCodeProduit("145der");
         //produitRepository.save(p);
         ps.updateProduit(p);
-    }*/
+    }
     
     @Test
     public void testDeleteProduit()
@@ -69,6 +69,6 @@ public class ProduitServiceTest {
                 System.out.println(c);
             }
     }
-
+    */
 
 }

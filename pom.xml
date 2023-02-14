@@ -161,11 +161,6 @@
         <deploymentType>arm</deploymentType>
         <username>admin</username>
         <password>nexus</password>
-        <applicationName>appname</applicationName>
-        <businessGroup>${deploy.businessGroup}</businessGroup>
-        <environment>${deploy.environment}</environment>
-        <target>${deploy.target}</target>
-        <targetType>${deploy.targetType}</targetType>
         <redeploy>true</redeploy>
     </configuration>
     <executions>

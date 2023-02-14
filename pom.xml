@@ -151,6 +151,35 @@
            </execution>
          </executions>
          </plugin>
+         
+         
+         <plugin>
+    <groupId>org.mule.tools.maven</groupId>
+    <artifactId>mule-maven-plugin</artifactId>
+    <version>${mule-maven-plugin.version}</version>
+    <configuration>
+        <deploymentType>arm</deploymentType>
+        <username>admin</username>
+        <password>nexus</password>
+        <applicationName>appname</applicationName>
+        <businessGroup>${deploy.businessGroup}</businessGroup>
+        <environment>${deploy.environment}</environment>
+        <target>${deploy.target}</target>
+        <targetType>${deploy.targetType}</targetType>
+        <redeploy>true</redeploy>
+    </configuration>
+    <executions>
+        <execution>
+            <id>deploy</id>
+            <phase>deploy</phase>
+            <goals>
+                <goal>deploy</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+
+
         </plugins>
        </build>
      </profile>

@@ -25,6 +25,20 @@
 		<sonar.java.binaries>target/classes</sonar.java.binaries>
 		<sonar.coverage.jacoco.xmlReportPaths>target/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
 	</properties>
+	
+	<distributionManagement>
+
+       <repository>
+
+           <id>deploymentRepo</id>
+
+           <url>http://192.168.1.15:8081/repository/maven-releases/</url>
+
+       </repository>
+
+   </distributionManagement>
+	
+	
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -104,6 +118,8 @@
 			</plugin>
 
 		</plugins>
+		
+		
 	</build>
 
 <profiles>
@@ -139,5 +155,7 @@
        </build>
      </profile>
 </profiles>
+
+
 
 </project>

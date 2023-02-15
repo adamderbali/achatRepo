@@ -17,12 +17,12 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class ProduitServiceTest {
 
-    @Autowired
+  /*  @Autowired
     IProduitService ps;
     
     @Autowired
     ProduitRepository produitRepository;
     
  
-
+*/
 }

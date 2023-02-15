@@ -24,51 +24,5 @@ public class ProduitServiceTest {
     ProduitRepository produitRepository;
     
  
-/*
-    @Test
-    @Order(1)
-    public void testRetrieveAllUsers() {
-        List<Produit> listProduits = ps.retrieveAllProduits();
-        Assertions.assertEquals(0, listProduits.size());
-    }
-    
-    @Test
-    public void testCreateProduit() {
-        Produit prod = new Produit("Code1232","iphone",4000,new Date(),new Date());
-        ps.addProduit(prod);
-        }
-    
-    @Test
-    public void testFindProduit()
-    {
-        Produit p = ps.retrieveProduit(3L); //produitRepository.findById(1L).get(); 
-        System.out.println(p);
-    }
-    
-    @Test
-    public void testUpdateProduit()
-    {
-        Produit p = produitRepository.findById(1L).get();
-        p.setCodeProduit("145der");
-        //produitRepository.save(p);
-        ps.updateProduit(p);
-    }
-    
-    @Test
-    public void testDeleteProduit()
-    {
-        produitRepository.deleteById(4L);;
-    }
-     
-    @Test
-    public void testListerTousProduits()
-    {
-        List<Produit> Produits = (List<Produit>) produitRepository.findAll();
-        for (Produit c : Produits)
-            {
-                System.out.println(c);
-            }
-    }
-    */
 
 }

@@ -25,7 +25,7 @@ import tn.esprit.rh.achat.repositories.ProduitRepository;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
 @Slf4j
-public class ProduitTest {
+public class ProduitServiceTestMockito {
 
     
     @Mock

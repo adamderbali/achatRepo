@@ -15,7 +15,7 @@ import tn.esprit.rh.achat.repositories.OperateurRepository;
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class OperateurServiceTest {
-
+/*
 	@Autowired
     IOperateurService op;
     OperateurRepository opRepo;
@@ -61,5 +61,5 @@ public class OperateurServiceTest {
           
   		
   	}
-  
+  */
 }

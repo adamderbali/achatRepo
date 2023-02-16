@@ -19,7 +19,7 @@ pipeline {
         }
         
       
-              stage('Checkout GIT') {
+              stage('CLean') {
             steps {
               sh 'maven clean'
                 

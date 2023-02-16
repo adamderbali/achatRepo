@@ -24,7 +24,7 @@
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<sonar.projectName>jenkins-shared-library</sonar.projectName>
 		<sonar.projectKey>jenkins-shared-library</sonar.projectKey>
-		<sonar.sources>src,vars</sonar.sources>
+		<sonar.sources>src</sonar.sources>
 		<sonar.tests>
 			test
 		</sonar.tests>

@@ -26,9 +26,9 @@
 	
 	 <pluginRepositories>
         <pluginRepository>
-            <id>maven-releases</id>
-            <name>maven-releases</name>
-            <url>http://192.168.2.20:8081/repository/maven-releases</url>
+            <id>simpleapp-release</id>
+            <name>simpleapp-release</name>
+            <url>http://192.168.2.20:8081/repository/simpleapp-release</url>
             <releases>
                 <enabled>true</enabled>
             </releases>

@@ -92,7 +92,7 @@ pipeline {
 				nexusUrl: '192.168.2.20:8081', 
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
-				repository: 'maven-releases', 
+				repository: 'simpleapp-release', 
 				version: '1.1.0'   
 			}
         }  

@@ -66,7 +66,7 @@ pipeline {
  	    ]
             ],  
                 credentialsId: 'nexus',
-                groupId: 'tn.esprit.rh.achat',
+                groupId: 'esprit',
                 nexusUrl: '192.168.2.20:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',

@@ -10,7 +10,7 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 
-	<groupId>tn.esprit.rh.achat</groupId>
+	<groupId>esprit</groupId>
 	<artifactId>achat</artifactId>
 	<version>1.0.0</version>
 	<packaging>jar</packaging>

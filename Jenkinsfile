@@ -49,6 +49,14 @@ pipeline {
             }
         }
 		
+		stage ('Maven Sonar') 
+		{
+            steps 
+			{
+                sh 'mvn sonar:sonar -Pcoverage -Dsonar.host.url=http://192.168.2.20:9000 -Dsonar.login=admin -Dsonar.password=sonar'
+            }
+        }
+		
         stage ('Maven Test')
 		{
             steps 

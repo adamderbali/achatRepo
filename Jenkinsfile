@@ -30,36 +30,7 @@ pipeline {
     
         
         
-         stage('Nexus'){
-            steps{
-              
-
-
-nexusArtifactUploader artifacts: [
-[
-artifactId: 'achat',
- classifier: '',
- file: 'target/achat-1.1.0.jar',
- type: 'jar'
-]
-], 
-credentialsId: 'nexus', 
-groupId: 'tn.esprit.rh', 
-nexusUrl: '192.168.2.20:8081', 
-nexusVersion: 'nexus3', 
-protocol: 'http', 
-repository: 'maven-releases', 
-version: '1.1.0'
-
-
-
-
-
-                
-       
-            
-        }
-        }
+         
    
         
     

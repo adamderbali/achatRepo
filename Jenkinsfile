@@ -8,15 +8,23 @@ pipeline {
           maven 'M2_HOME'
       }
 
-stage('maven vr') {
-            steps {
-                sh 'mvn --version'
-            }
-        }
+
 
     stages {
-        stage('Checkout GIT') {
-            steps {
+	
+		stage('maven vr')
+		{
+			steps 
+			{
+				sh 'mvn --version'
+			}
+		}
+		
+		
+        stage('Checkout GIT') 
+		{
+            steps 
+			{
                 echo 'Pulling project from GIT...';
                 git branch: 'ademDerbali',
                 url : 'https://github.com/adamderbali/achatRepo.git',
@@ -25,79 +33,68 @@ stage('maven vr') {
             }
         }
         
-      
-
-        stage ('MVN CLEAN') {
-            steps {
+        stage ('MVN CLEAN')
+		{
+            steps 
+			{
                 sh 'mvn clean'
             }
         }
         
-   
-       stage('Maven Build') {
-        
-            steps {
-                    sh 'mvn package'
+       stage('Maven Build')
+	   {
+            steps 
+			{
+                sh 'mvn package'
             }
         }
-        stage ('MVN TEST') {
-            steps {
-                sh 'mvn test'
-                
+		
+        stage ('MVN TEST')
+		{
+            steps 
+			{
+                sh 'mvn test'    
             }
         }
         
-  stage ('MVN COMPILE') {
-            steps {
+		stage ('MVN COMPILE')
+		{
+            steps 
+			{
                 sh 'mvn compile'
             }
         }
         
-
-     stage ('MVN INSTALL') {
-            steps {
-                sh 'mvn install'
-                
+		stage ('MVN INSTALL')
+		{
+            steps 
+			{
+                sh 'mvn install'    
             }
         }
     
-           
-        
-         stage('Nexus'){
-            steps{
-              
-
-
-nexusArtifactUploader artifacts: [
-[
-artifactId: 'achat',
- classifier: '',
- file: 'target/achat-1.1.0.jar',
- type: 'jar'
-]
-], 
-credentialsId: 'nexus', 
-groupId: 'tn.esprit.rh', 
-nexusUrl: '192.168.2.20:8081', 
-nexusVersion: 'nexus3', 
-protocol: 'http', 
-repository: 'http://192.168.2.20:8081/repository/maven-releases', 
-version: '1.1.0'
-
-
-
-
-
-                
-       
-            
-        }
-        }
-        
-         
-   
-        
-    
-        
+        stage('Nexus')
+		{
+            steps
+			{
+				nexusArtifactUploader artifacts:
+				[
+					[
+						artifactId: 'achat',
+						classifier: '',
+						file: 'target/achat-1.1.0.jar',
+						type: 'jar'
+					]
+				], 
+				
+				credentialsId: 'nexus', 
+				groupId: 'tn.esprit.rh', 
+				nexusUrl: '192.168.2.20:8081', 
+				nexusVersion: 'nexus3', 
+				protocol: 'http', 
+				repository: 'maven-releases', 
+				version: '1.1.0'   
+			}
+        }  
     }
 }

@@ -22,22 +22,29 @@
 	<properties>
 		<java.version>1.8</java.version>
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<sonar.projectName>jenkins-shared-library</sonar.projectName>
+		<sonar.projectKey>jenkins-shared-library</sonar.projectKey>
+		<sonar.sources>src,vars</sonar.sources>
+		<sonar.tests>
+			test
+		</sonar.tests>
+		<sonar.groovy.jacoco.reportPath>target/jacoco.exec</sonar.groovy.jacoco.reportPath>
 	</properties>
-	
-	 <pluginRepositories>
-        <pluginRepository>
-            <id>simpleapp-release</id>
-            <name>simpleapp-release</name>
-            <url>http://192.168.2.20:8081/repository/simpleapp-release</url>
-            <releases>
-                <enabled>true</enabled>
-            </releases>
-            <snapshots>
-                <enabled>true</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
-    
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>simpleapp-release</id>
+			<name>simpleapp-release</name>
+			<url>http://192.168.2.20:8081/repository/simpleapp-release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -131,7 +138,30 @@
 				<version>2.8.1</version>
 			</plugin>
 
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>0.8.3</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>prepare-agent</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>report</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+			</plugin>
 		</plugins>
 	</build>
 

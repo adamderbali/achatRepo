@@ -12,15 +12,6 @@ pipeline {
 
     stages {
 	
-		stage('Maven Version')
-		{
-			steps 
-			{
-				sh 'mvn --version'
-			}
-		}
-		
-		
         stage('GIT Checkout') 
 		{
             steps 

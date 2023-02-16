@@ -58,13 +58,15 @@ pipeline {
                     def mavenPom = readMavenPom file: 'pom.xml'
                 
         nexusArtifactUploader artifacts: [
-             [artifactId: 'achat',
+             [
+		    artifactId: 'achat',
                     classifier: '',
                     file: "target/achat-${mavenPom.version}.jar",
-                     type: 'jar'],
+                    type: 'jar'
+ 	    ]
             ],  
                 credentialsId: 'nexus',
-                groupId: 'tn.esprit.rh',
+                groupId: 'tn.esprit.rh.achat',
                 nexusUrl: '192.168.2.20:8081',
                 nexusVersion: 'nexus3',
                 protocol: 'http',

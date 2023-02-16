@@ -9,9 +9,12 @@
 		<version>2.5.3</version>
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
+	
 	<groupId>tn.esprit.rh</groupId>
 	<artifactId>achat</artifactId>
-	<version>1.0</version>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+	<url>http://maven.apache.org</url>
 	<name>achat</name>
 	<description>Projet pour le module DevOps</description>
 	<properties>

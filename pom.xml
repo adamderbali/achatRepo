@@ -24,6 +24,7 @@
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<sonar.projectName>projetFinal</sonar.projectName>
 		<sonar.projectKey>projetFinal</sonar.projectKey>
+		<sonar.core.codeCoveragePlugin>jacoco</sonar.core.codeCoveragePlugin>
 		<sonar.sources>src/main</sonar.sources>
 		<sonar.tests>src/test</sonar.tests>
 		<sonar.groovy.jacoco.reportPath>target/jacoco.exec</sonar.groovy.jacoco.reportPath>
@@ -160,13 +161,13 @@
 				<groupId>org.jacoco</groupId>
 				<artifactId>jacoco-maven-plugin</artifactId>
 			</plugin>
-			
+
 			<plugin>
 				<groupId>org.sonarsource.scanner.maven</groupId>
 				<artifactId>sonar-maven-plugin</artifactId>
 				<version>3.7.0.1746</version>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 

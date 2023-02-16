@@ -16,26 +16,7 @@ pipeline {
             }
         }
         
-        stage ('MVN CLEAN') {
-            steps {
-                sh 'mvn clean package'
-            }
-        }
-        
-   
-    
-        stage ('MVN TEST') {
-            steps {
-                sh 'mvn test'
-                
-            }
-        }
-        
-  stage ('MVN COMPILE') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
+      
         
 
      stage ('MVN INSTALL') {

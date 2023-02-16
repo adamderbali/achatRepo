@@ -18,16 +18,11 @@ pipeline {
         
         stage ('MVN CLEAN') {
             steps {
-                sh 'mvn clean'
+                sh 'mvn clean package'
             }
         }
         
-        stage ('MVN COMPILE') {
-            steps {
-                sh 'mvn compile'
-            }
-        }
-        
+   
     
         stage ('MVN TEST') {
             steps {
@@ -35,14 +30,6 @@ pipeline {
                 
             }
         }
-        
-         stage ('MVN INSTALL') {
-            steps {
-                sh 'mvn install'
-                
-            }
-        }
-        
         
     
         

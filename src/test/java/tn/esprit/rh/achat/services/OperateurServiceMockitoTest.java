@@ -43,7 +43,7 @@ public class OperateurServiceMockitoTest {
 	};
 
 	@Test
-	public void getEmployeeByIdTest()
+	public void getOperateurByIdTest()
 	{
 		Mockito.when(operateurRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(operateur));
 

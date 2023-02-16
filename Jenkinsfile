@@ -62,7 +62,7 @@ nexusArtifactUploader artifacts: [
 [
 artifactId: 'achat',
  classifier: '',
- file: 'target/achat-1.0.0.jar',
+ file: 'target/achat-1.1.0.jar',
  type: 'jar'
 ]
 ], 

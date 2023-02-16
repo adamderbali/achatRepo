@@ -77,12 +77,16 @@ pipeline {
 		{
             steps
 			{
+				script
+				{
+					def mavenPom = readMavenPom file: 'pom.xml'
+					
 				nexusArtifactUploader artifacts:
 				[
 					[
 						artifactId: 'achat',
 						classifier: '',
-						file: 'target/achat-1.1.0.jar',
+						file: "target/achat-${mavenPom.version}.jar",
 						type: 'jar'
 					]
 				], 
@@ -93,7 +97,8 @@ pipeline {
 				nexusVersion: 'nexus3', 
 				protocol: 'http', 
 				repository: 'simpleapp-release', 
-				version: '1.1.0'   
+				version: "${mavenPom.version}"
+				}				
 			}
         }  
     }

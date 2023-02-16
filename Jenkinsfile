@@ -12,7 +12,7 @@ pipeline {
 
     stages {
 	
-		stage('maven vr')
+		stage('Maven Version')
 		{
 			steps 
 			{
@@ -21,7 +21,7 @@ pipeline {
 		}
 		
 		
-        stage('Checkout GIT') 
+        stage('GIT Checkout') 
 		{
             steps 
 			{
@@ -33,7 +33,7 @@ pipeline {
             }
         }
         
-        stage ('MVN CLEAN')
+        stage ('Maven Clean')
 		{
             steps 
 			{
@@ -41,15 +41,15 @@ pipeline {
             }
         }
         
-       stage('Maven Build')
-	   {
+		stage ('Maven Compile')
+		{
             steps 
 			{
-                sh 'mvn package'
+                sh 'mvn compile'
             }
         }
 		
-        stage ('MVN TEST')
+        stage ('Maven Test')
 		{
             steps 
 			{
@@ -57,15 +57,15 @@ pipeline {
             }
         }
         
-		stage ('MVN COMPILE')
-		{
+		stage('Maven Build')
+	    {
             steps 
 			{
-                sh 'mvn compile'
+                sh 'mvn package'
             }
         }
-        
-		stage ('MVN INSTALL')
+		
+		stage ('Maven Install')
 		{
             steps 
 			{
@@ -73,7 +73,7 @@ pipeline {
             }
         }
     
-        stage('Nexus')
+        stage('Deployement To Nexus')
 		{
             steps
 			{

@@ -25,9 +25,7 @@
 		<sonar.projectName>jenkins-shared-library</sonar.projectName>
 		<sonar.projectKey>jenkins-shared-library</sonar.projectKey>
 		<sonar.sources>src</sonar.sources>
-		<sonar.tests>
-			src
-		</sonar.tests>
+		
 		<sonar.groovy.jacoco.reportPath>target/jacoco.exec</sonar.groovy.jacoco.reportPath>
 	</properties>
 

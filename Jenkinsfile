@@ -118,8 +118,8 @@ pipeline {
 				{
                     script
 					{
-                        withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/" ]) {
-                        sh 'docker login -u ademderbali-p ${dockerhub}'
+                        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                        sh 'docker login -u ademDerbali-p ${dockerhub}'
                              }
                         sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:latest'    
                         sh 'docker push ademderbali/achat-1.1.2'    

@@ -118,7 +118,7 @@ pipeline {
 				{
                     script
 					{
-                        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
+                        withDockerRegistry([ credentialsId: "dockerhub", url: "https://hub.docker.com/" ]) {
                         sh 'docker login -u ademderbali-p ${dockerhub}'
                              }
                         sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:latest'    

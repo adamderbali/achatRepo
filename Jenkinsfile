@@ -119,10 +119,10 @@ pipeline {
                     script
 					{
                         
-                        sh 'sudo docker login -u ademDerbali -p dckr_pat_9AzoyaOin5rvb2KVPbfp0Fo9lSg'
+                        sh 'docker login -u ademDerbali -p dckr_pat_9AzoyaOin5rvb2KVPbfp0Fo9lSg'
                              
-                        sh 'sudo docker tag  achat-1.1.2 ademderbali/achat-1.1.2:latest'    
-                        sh 'sudo docker push ademderbali/achat-1.1.2'    
+                        sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:latest'    
+                        sh 'docker push ademderbali/achat-1.1.2'    
                     }
                    
                 }

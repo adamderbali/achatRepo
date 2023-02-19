@@ -102,7 +102,7 @@ pipeline {
         }  
 
 
-		stage('DOCKER BUILD IMG STAGE'){
+		stage('Docker Build Image'){
                 steps
 				{
                     script
@@ -113,7 +113,7 @@ pipeline {
             }
       
       
-        stage('DOCKER PUSH IMG STAGE '){
+        stage('Docker Push Image'){
                 steps
 				{
                     script
@@ -127,7 +127,7 @@ pipeline {
                    
                 }
         }
-        stage('DOCKER COMPOSE STAGE')
+        stage('Docker-Compose')
 		{
                 steps
 				{

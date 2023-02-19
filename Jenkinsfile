@@ -121,7 +121,7 @@ pipeline {
                         
                         sh 'docker login -u ademderbali -p dockerhub'
                              
-                        sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:latest'    
+                        sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:tag1'    
                         sh 'docker push ademderbali/achat-1.1.2'    
                     }
                    

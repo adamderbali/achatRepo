@@ -26,7 +26,7 @@ services:
             - "db_volume:/var/lib/mysql"   
   
     frontend:
-        image: mounazoghlami/frontenddevops
+        image: ademderbali/frontenddevops
         depends_on:
             - backend
         ports:

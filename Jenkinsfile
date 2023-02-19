@@ -102,21 +102,23 @@ pipeline {
         }  
 
 
-stage('DOCKER BUILD IMG STAGE'){
-                steps{
-                    script{
+		stage('DOCKER BUILD IMG STAGE'){
+                steps
+				{
+                    script
+					{
                         sh 'docker build -t achat-1.1.2 .'
-                    }
-                   
+                    }                   
                 }
-               
             }
       
       
         stage('DOCKER PUSH IMG STAGE '){
-                steps{
-                    script{
-                        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                steps
+				{
+                    script
+					{
+                        withDockerRegistry([ credentialsId: "dockerhub", url: "" ]) {
                         sh 'docker login -u ademderbali-p ${dockerhub}'
                              }
                         sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:latest'    
@@ -125,9 +127,12 @@ stage('DOCKER BUILD IMG STAGE'){
                    
                 }
         }
-        stage('DOCKER COMPOSE STAGE'){
-                steps{
-                    script{
+        stage('DOCKER COMPOSE STAGE')
+		{
+                steps
+				{
+                    script
+					{
                         sh 'docker-compose up'
                     }
                    

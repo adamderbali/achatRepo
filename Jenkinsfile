@@ -100,5 +100,39 @@ pipeline {
 				}				
 			}
         }  
+
+
+stage('DOCKER BUILD IMG STAGE'){
+                steps{
+                    script{
+                        sh 'docker build -t achat-1.1.2 .'
+                    }
+                   
+                }
+               
+            }
+      
+      
+        stage('DOCKER PUSH IMG STAGE '){
+                steps{
+                    script{
+                        withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                        sh 'docker login -u ademDerbali-p ${dockerhub}'
+                             }
+                        sh 'docker tag  achat-1.1.2 ademDerbali/achat-1.1.2:latest'    
+                        sh 'docker push ademDerbali/achat-1.1.2'    
+                    }
+                   
+                }
+        }
+        stage('DOCKER COMPOSE STAGE'){
+                steps{
+                    script{
+                        sh 'docker-compose up'
+                    }
+                   
+                }
+               
+            }
     }
 }

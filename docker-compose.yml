@@ -14,7 +14,7 @@ services:
             SPRING_DATASOURCE_PASSWORD: root
 
     sql_db:
-        image: mysql:8
+        image: ademderbali/mysql:8
         container_name: sql_db
         restart: unless-stopped
         ports:

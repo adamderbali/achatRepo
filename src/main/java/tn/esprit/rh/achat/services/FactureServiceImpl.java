@@ -97,7 +97,7 @@ public class FactureServiceImpl implements IFactureService {
 	}
 
 	@Override
-	public void assignOperateurToFacture(Long idOperateur, Long idFacture) {
+	public void assignOperateurToFacture(Long idOperateur, Long idFacture) throws NullPointerException{
 		Facture facture = factureRepository.findById(idFacture).orElse(null);
 		Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
 		operateur.getFactures().add(facture);

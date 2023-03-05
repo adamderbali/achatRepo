@@ -123,7 +123,8 @@ pipeline {
                         sh 'docker login -u ademderbali -p dockerhub'
                              
                         sh 'docker tag  achat-1.1.2 ademderbali/achat-1.1.2:tag1'    
-                        sh 'docker push ademderbali/achat-1.1.2'    
+                        sh 'docker push ademderbali/achat-1.1.2'  
+                          
                         sh 'docker tag  mysql ademderbali/mysql:8'    
                         sh 'docker push ademderbali/mysql'    
                     }

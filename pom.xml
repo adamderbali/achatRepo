@@ -21,7 +21,7 @@
 		<pluginRepository>
 			<id>simpleapp-release</id>
 			<name>simpleapp-release</name>
-			<url>http://192.168.2.20:8081/repository/simpleapp-release</url>
+			<url>http://192.168.56.100:8081/repository/simpleapp-release</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

@@ -22,6 +22,7 @@ public class FournisseurRestController {
 	@ResponseBody
 	public List<Fournisseur> getFournisseurs() {
 		List<Fournisseur> fournisseurs = fournisseurService.retrieveAllFournisseurs();
+		//ok
 		return fournisseurs;
 	}
 

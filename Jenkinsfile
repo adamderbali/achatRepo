@@ -17,7 +17,8 @@ pipeline {
 			{
                 echo 'Pulling project from GIT...';
                 git branch: 'sabrinezekri',
-                url : 'https://github.com/sabrinezekri/achatRepo.git'
+                url : 'https://github.com/adamderbali/achatRepo.git'
+
                 
             }
         }

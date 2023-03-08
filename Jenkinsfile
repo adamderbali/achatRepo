@@ -1,14 +1,10 @@
 pipeline {
     
-
     agent any
     
        tools {
           maven 'M2_HOME'
       }
-
-
-
     stages {
 	
         stage('GIT Checkout') 
@@ -16,9 +12,9 @@ pipeline {
             steps 
 			{
                 echo 'Pulling project from GIT...';
-                git branch: 'sabrinezekri',
-                url : 'https://github.com/adamderbali/achatRepo.git'
-
+                git branch: 'ademDerbali',
+                url : 'https://github.com/adamderbali/achatRepo.git',
+                credentialsId : 'e344e277-5a08-40df-8aaa-152740d92aaa'
                 
             }
         }
@@ -38,7 +34,6 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-		
-		
+  
     }
 }

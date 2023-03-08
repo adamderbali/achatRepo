@@ -12,9 +12,8 @@ pipeline {
             steps 
 			{
                 echo 'Pulling project from GIT...';
-                git branch: 'ademDerbali',
+                git branch: 'sabrinezekri',
                 url : 'https://github.com/adamderbali/achatRepo.git',
-                credentialsId : 'e344e277-5a08-40df-8aaa-152740d92aaa'
                 
             }
         }

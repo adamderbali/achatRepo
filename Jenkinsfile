@@ -6,6 +6,10 @@ pipeline {
        tools {
           maven 'M2_HOME'
       }
+     
+      environment {
+          MAVEN_OPTS = "-Xmx2g -Xms2g"
+     }
 
     stages {
 	

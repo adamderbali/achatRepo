@@ -95,6 +95,7 @@ pipeline {
 				protocol: 'http', 
 				repository: 'simpleapp-release', 
 				version: "${mavenPom.version}"
+				
 				}				
 			}
         }  

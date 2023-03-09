@@ -17,12 +17,19 @@
         <java.version>1.8</java.version>
         <maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
     </properties>
-	  <distributionManagement>
-	    <repository>
-	        <id>deploymentRepo</id>
-	        <url>http://192.168.56.100:8081/repository/maven-release/</url>
-	    </repository>
-	</distributionManagement>
+	 <pluginRepositories>
+		<pluginRepository>
+			<id>simpleapp-release</id>
+			<name>simpleapp-release</name>
+			<url>http://192.168.56.100:8081/repository/simpleapp-release</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
     <dependencies>
         <dependency>

@@ -7,12 +7,6 @@ pipeline {
           maven 'M2_HOME'
       }
 
-	 environment {
-	        NEXUS_USERNAME = credentials('admin')
-	        NEXUS_PASSWORD = credentials('nexus')
-	    }
-
-
     stages {
 	
         stage('GIT Checkout') 
@@ -99,8 +93,8 @@ pipeline {
 				protocol: 'http', 
 				repository: 'simpleapp-release', 
 				version: "${mavenPom.version}",
-				username: "${env.NEXUS_USERNAME}",
-                password: "${env.NEXUS_PASSWORD}"
+				username: 'admin',
+                password: 'nexus'
 				
 				}				
 			}

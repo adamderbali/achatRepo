@@ -95,9 +95,9 @@ pipeline {
 				version: "${mavenPom.version}",
 				username: "${NEXUS_USERNAME}",
                 password: "${NEXUS_PASSWORD}"
-                )
+   
 				}
-				}				
+			  }				
 			}
         }  
 

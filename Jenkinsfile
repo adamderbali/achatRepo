@@ -13,8 +13,7 @@ pipeline {
                 git branch: 'sabrinezekri',
                 url : 'https://github.com/adamderbali/achatRepo.git'      
             }
-        }
-        
+        }       
         stage ('Maven Clean')
 		{
             steps 
@@ -22,7 +21,6 @@ pipeline {
                 sh 'mvn clean'
             }
         }
-        
 		stage ('Maven Compile')
 		{
             steps 
@@ -30,7 +28,6 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-        
         	stage ('Maven Sonar') 
 		{
             steps 
@@ -44,8 +41,7 @@ pipeline {
 			{
                 sh 'mvn test'    
             }
-        }
-        
+        } 
 		stage('Maven Build')
 	    {
             steps 
@@ -53,7 +49,6 @@ pipeline {
                 sh 'mvn package'
             }
         }
-		
 		stage ('Maven Install')
 		{
             steps 
@@ -61,5 +56,34 @@ pipeline {
                 sh 'mvn install'    
             }
         }
+         stage('Deployement To Nexus')
+		{
+            steps
+			{
+				script
+				{
+					def mavenPom = readMavenPom file: 'pom.xml'
+					
+				nexusArtifactUploader artifacts:
+				[
+					[
+						artifactId: 'achat',
+						classifier: '',
+						file: "target/achat-${mavenPom.version}.jar",
+						type: 'jar'
+					]
+				], 
+				
+				credentialsId: 'nexus', 
+				groupId: 'tn.esprit.rh', 
+				nexusUrl: '192.168.2.20:8081', 
+				nexusVersion: 'nexus3', 
+				protocol: 'http', 
+				repository: 'achatapp-release', 
+				version: "${mavenPom.version}"
+				}				
+			}
+        }  
+        
     }
 }

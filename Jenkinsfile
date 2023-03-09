@@ -1,7 +1,5 @@
-pipeline {
-    
-    agent any
-    
+pipeline {   
+    agent any  
        tools {
           maven 'M2_HOME'
       }
@@ -13,8 +11,7 @@ pipeline {
 			{
                 echo 'Pulling project from GIT...';
                 git branch: 'sabrinezekri',
-                url : 'https://github.com/adamderbali/achatRepo.git',
-                
+                url : 'https://github.com/adamderbali/achatRepo.git'      
             }
         }
         

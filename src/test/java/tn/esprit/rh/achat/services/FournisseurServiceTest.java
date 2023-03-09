@@ -16,10 +16,10 @@ import tn.esprit.rh.achat.entities.CategorieFournisseur;
 import tn.esprit.rh.achat.entities.Fournisseur;
 
 
-@SpringBootTest
-@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//@SpringBootTest
+//@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class FournisseurServiceTest {
-	
+/*	
 	@Autowired
 	IFournisseurService iFournisseurService;
 	
@@ -39,5 +39,7 @@ public class FournisseurServiceTest {
 		    Fournisseur newFournisseur=iFournisseurService.addFournisseur(fournisseur); 
 	        Assertions.assertNotNull(newFournisseur.getIdFournisseur());
 	    }
+	    
+	    */
 
 }

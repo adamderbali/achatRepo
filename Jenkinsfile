@@ -76,8 +76,7 @@ pipeline {
 
          steps{
 
-           sh 'mvn deploy -DskipStaging=true -Dmaven.deploy.skip=false -Dmaven.test.skip=true' // sh 'echo NEXUS' //
-
+		   sh 'mvn deploy -DrepositoryId=deploymentRepo -Durl=http://192.168.60.20:8081/repository/maven-releases/ '
 			 }
 
 		}

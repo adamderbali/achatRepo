@@ -75,7 +75,7 @@ pipeline {
 				script
 				{
 					def mavenPom = readMavenPom file: 'pom.xml'
-					
+				withCredentials([usernamePassword(credentialsId: 'nexus', usernameVariable: 'admin', passwordVariable: 'nexus')]) {	
 				nexusArtifactUploader artifacts:
 				[
 					[
@@ -93,9 +93,10 @@ pipeline {
 				protocol: 'http', 
 				repository: 'simpleapp-release', 
 				version: "${mavenPom.version}",
-				username: 'admin',
-                password: 'nexus'
-				
+				username: "${NEXUS_USERNAME}",
+                password: "${NEXUS_PASSWORD}"
+                )
+				}
 				}				
 			}
         }  

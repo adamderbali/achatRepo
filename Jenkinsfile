@@ -8,7 +8,7 @@ pipeline {
       }
      
       environment {
-          MAVEN_OPTS = "-Xmx2g -Xms2g"
+          MAVEN_OPTS = "-Xmx2g"
      }
 
     stages {

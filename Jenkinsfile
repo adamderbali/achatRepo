@@ -62,7 +62,8 @@ pipeline {
 			{
 				script
 				{
-					def mavenPom = readMavenPom file: 'pom.xml'	
+					def mavenPom = readMavenPom file: 'pom.xml'
+					
 				nexusArtifactUploader artifacts:
 				[
 					[
@@ -73,6 +74,8 @@ pipeline {
 					]
 				], 	
 				credentialsId: 'nexus', 
+				username: 'admin',
+                password: 'nexus',
 				groupId: 'tn.esprit.rh', 
 				nexusUrl: '192.168.2.20:8081', 
 				nexusVersion: 'nexus3', 

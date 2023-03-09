@@ -34,7 +34,7 @@
 		<pluginRepository>
 			<id>achatapp-release</id>
 			<name>achatapp-release</name>
-			<url>http://192.168.2.20:8081/#browse/upload:achatapp-release</url>
+			<url>http://192.168.2.20:8081/repository/achatapp-release</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>

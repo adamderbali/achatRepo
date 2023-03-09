@@ -76,7 +76,7 @@ pipeline {
 
          steps{
 
-		   sh 'mvn -X deploy -DrepositoryId=deploymentRepo -Durl=http://192.168.56.100:8081/repository/maven-releases/ '
+		   sh 'mvn deploy -Durl=http://192.168.56.100:8081/repository/maven-releases/ '
 			 }
 
 		}

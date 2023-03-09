@@ -97,8 +97,8 @@ pipeline {
 				protocol: 'http', 
 				repository: 'simpleapp-release', 
 				version: "${mavenPom.version}",
-				username: "${admin}",
-                password: "${nexus}"
+				username: admin,
+                password: nexus
    
 				}
 			  }				

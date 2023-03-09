@@ -62,8 +62,7 @@ pipeline {
 			{
 				script
 				{
-					def mavenPom = readMavenPom file: 'pom.xml'
-					
+					def mavenPom = readMavenPom file: 'pom.xml'	
 				nexusArtifactUploader artifacts:
 				[
 					[
@@ -72,8 +71,7 @@ pipeline {
 						file: "target/achat-${mavenPom.version}.jar",
 						type: 'jar'
 					]
-				], 
-				
+				], 	
 				credentialsId: 'nexus', 
 				groupId: 'tn.esprit.rh', 
 				nexusUrl: '192.168.2.20:8081', 

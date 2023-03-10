@@ -94,7 +94,7 @@ pipeline {
                         
                         sh 'docker login -u ghadaf -p dockerghada'
                              
-                        sh 'docker tag  achat-1.0.0 sabrinezekri/achat-1.0.0:tag1'    
+                        sh 'docker tag  achat-1.0.0 ghadaf/achat-1.0.0:tag1'    
                         sh 'docker push ghadaf/achat-1.0.0' 
                         
                         sh 'docker tag  mysql ghadaf/mysql'    

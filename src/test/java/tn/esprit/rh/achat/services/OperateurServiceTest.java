@@ -1,6 +1,8 @@
 package tn.esprit.rh.achat.services;
 
 
+import static org.mockito.Mockito.times;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -36,6 +38,7 @@ public class OperateurServiceTest {
 	
 	
 	Operateur operateur = new Operateur("Fridhi","Ghada", "4Info_BI");
+	Operateur operateur1 = new Operateur("Fridhi","Ghada2", "4Info_BI");
 	
 	List<Operateur> listOperateurs = new ArrayList<Operateur>(){
 		{
@@ -53,5 +56,29 @@ public class OperateurServiceTest {
 		Operateur o = operateurService.retrieveOperateur(1L);
 		Assertions.assertNotNull(o);
 		log.info("get ===> " + o.toString());
+	}
+	
+	@Test
+	public void testgetAllOperateurs()
+	{
+		Mockito.when(operateurRepository.findAll()).thenReturn(listOperateurs);
+		List<Operateur> listAllOperateurs = operateurService.retrieveAllOperateurs();
+		Assertions.assertEquals(3, listAllOperateurs.size());
+	}
+	
+	@Test
+	public void testAddOperateur()
+	{
+		Mockito.when(operateurRepository.save(operateur1)).thenReturn(operateur1);
+		Operateur o1 = operateurService.addOperateur(operateur1);
+		Mockito.verify(operateurRepository , times(1)).save(Mockito.any(Operateur.class));
+		Assertions.assertNotNull(o1);
+	}
+	
+	@Test
+	public void testDeleteOperateur()
+	{
+		operateurService.deleteOperateur(4L);
+		Mockito.verify(operateurRepository , times(0)).delete(operateur);
 	}
 }

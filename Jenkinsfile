@@ -102,13 +102,13 @@ pipeline {
                     script
 					{
                         
-                        sh 'docker login -u ademderbali -p dockerhub'
+                        sh 'docker login -u sabrinezekri -p dockerhub'
                              
-                        sh 'docker tag  achat-1.1.3 ademderbali/achat-1.1.3:tag1'    
-                        sh 'docker push ademderbali/achat-1.1.3' 
+                        sh 'docker tag  achat-1.1.3 sabrinezekri/achat-1.1.3:tag1'    
+                        sh 'docker push sabrinezekri/achat-1.1.3' 
                         
-                        sh 'docker tag  mysql ademderbali/mysql:8'    
-                        sh 'docker push ademderbali/mysql'    
+                        sh 'docker tag  mysql sabrinezekri/mysql:8'    
+                        sh 'docker push sabrinezekri/mysql'    
                          
                           
                             

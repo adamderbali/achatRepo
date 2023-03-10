@@ -76,13 +76,57 @@ pipeline {
 				credentialsId: 'nexus', 
 				groupId: 'tn.esprit.rh', 
 				protocol: 'http', 
-				nexusUrl: '192.168.2.20:8081/repository/achatapp-release/', 
+				nexusUrl: '192.168.2.20:8081', 
 				repository: 'achatapp-release',
 				nexusVersion: 'nexus3', 
 				version: "${mavenPom.version}"
 				}				
 			}
         }  
-        
+        stage('Docker Build Image'){
+                steps
+				{
+                    script
+					{
+                        sh 'docker build -t achat-1.1.3 .'
+                        sh 'docker build -t mysql .'
+						
+                    }                   
+                }
+            }
+      
+      
+        stage('Docker Push Image'){
+                steps
+				{
+                    script
+					{
+                        
+                        sh 'docker login -u ademderbali -p dockerhub'
+                             
+                        sh 'docker tag  achat-1.1.3 ademderbali/achat-1.1.3:tag1'    
+                        sh 'docker push ademderbali/achat-1.1.3' 
+                        
+                        sh 'docker tag  mysql ademderbali/mysql:8'    
+                        sh 'docker push ademderbali/mysql'    
+                         
+                          
+                            
+                    }
+                   
+                }
+        }
+        stage('Docker-Compose')
+		{
+                steps
+				{
+                    script
+					{
+                        sh 'docker-compose up'
+                    }
+                   
+                }
+               
+            }    
     }
 }

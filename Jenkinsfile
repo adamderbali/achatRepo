@@ -114,22 +114,7 @@ pipeline {
             }
       
       
-      
-        stage('Docker-Compose')
-		{
-                steps
-				{
-                    script
-					{
-                        sh 'docker-compose up'
-                    }
-                   
-                }
-               
-            }
-            
-            
-              stage('Docker Push Image'){
+        stage('Docker Push Image'){
                 steps
 				{
                     script
@@ -146,5 +131,17 @@ pipeline {
                    
                 }
         }
+        stage('Docker-Compose')
+		{
+                steps
+				{
+                    script
+					{
+                        sh 'docker-compose up'
+                    }
+                   
+                }
+               
+            }
     }
 }

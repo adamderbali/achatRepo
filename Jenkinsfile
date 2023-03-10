@@ -108,7 +108,7 @@ pipeline {
                     script
 					{
                         sh 'docker build -t achat-1.1.3 .'
-                        sh 'docker build -t mysql:8 .'
+                        sh 'docker build -t mysql .'
 						
                     }                   
                 }

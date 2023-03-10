@@ -102,7 +102,7 @@ pipeline {
                     script
 					{
                         
-                        sh 'docker login -u sabrinezekri -p dockerhub'
+                        sh 'docker login -u sabrinezekri -p Nesrine2019%'
                              
                         sh 'docker tag  achat-1.1.3 sabrinezekri/achat-1.1.3:tag1'    
                         sh 'docker push sabrinezekri/achat-1.1.3' 

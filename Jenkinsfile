@@ -76,9 +76,9 @@ pipeline {
 				credentialsId: 'nexus', 
 				groupId: 'tn.esprit.rh', 
 				protocol: 'http', 
-				nexusUrl: '192.168.2.20:8081', 
+				nexusUrl: '192.168.2.20:8081/repository/achatapp-release/', 
 				repository: 'achatapp-release',
-				nexusVersion: 'nexus2', 
+				nexusVersion: 'nexus3', 
 				version: "${mavenPom.version}"
 				}				
 			}

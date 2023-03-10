@@ -89,7 +89,7 @@ pipeline {
 						type: 'jar'
 					]
 				], 	
-				credentialsId: 'NEXUS_CRED', 
+				credentialsId: 'Nexus', 
 				groupId: 'tn.esprit.rh', 
 				protocol: 'http', 
 				nexusUrl: '192.168.56.100:8081', 

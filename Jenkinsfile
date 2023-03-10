@@ -92,7 +92,7 @@ pipeline {
 				credentialsId: 'NEXUS_CRED', 
 				groupId: 'tn.esprit.rh', 
 				protocol: 'http', 
-				nexusUrl: '192.168.56.100:8081/repository/maven-releases/', 
+				nexusUrl: '192.168.56.100:8081', 
 				repository: 'maven-releases',
 				nexusVersion: 'nexus3',
 				version: "${mavenPom.version}"

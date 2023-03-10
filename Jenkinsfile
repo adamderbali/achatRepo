@@ -98,7 +98,53 @@ pipeline {
 				version: "${mavenPom.version}"
 				}				
 			}
-        }  
+        }
+        
+             stage('Docker Build Image'){
+                steps
+				{
+                    script
+					{
+                        sh 'docker build -t achat-1.0.0 .'
+                        sh 'docker build -t mysql .'
+						
+                    }                   
+                }
+            }
+      
+      
+        stage('Docker Push Image'){
+                steps
+				{
+                    script
+					{
+                        
+                        sh 'docker login -u ghadaf -p dockerghada'
+                             
+                        sh 'docker tag  achat-1.0.0 sabrinezekri/achat-1.0.0:tag1'    
+                        sh 'docker push ghadaf/achat-1.0.0' 
+                        
+                        sh 'docker tag  mysql ghadaf/mysql'    
+                        sh 'docker push ghadaf/mysql'    
+                         
+                          
+                            
+                    }
+                   
+                }
+        }
+        stage('Docker-Compose')
+		{
+                steps
+				{
+                    script
+					{
+                        sh 'docker-compose up'
+                    }
+                   
+                }
+               
+            }      
       
     }
 }

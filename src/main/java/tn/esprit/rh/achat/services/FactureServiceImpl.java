@@ -9,7 +9,6 @@ import tn.esprit.rh.achat.repositories.*;
 import javax.transaction.Transactional;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Slf4j
@@ -66,16 +65,18 @@ public class FactureServiceImpl implements IFactureService {
 
 	@Override
 	public List<Facture> getFacturesByFournisseur(Long idFournisseur) throws NullPointerException {
-		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
-		return (List<Facture>) fournisseur.getFactures();
+		/*Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
+		return (List<Facture>) fournisseur.getFactures();*/
+	    return null;
 	}
 
 	@Override
 	public void assignOperateurToFacture(Long idOperateur, Long idFacture) throws NullPointerException{
-		Facture facture = factureRepository.findById(idFacture).orElse(null);
+		/*Facture facture = factureRepository.findById(idFacture).orElse(null);
 		Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
 		operateur.getFactures().add(facture);
-		operateurRepository.save(operateur);
+		operateurRepository.save(operateur);*/
+	    
 	}
 
 	@Override

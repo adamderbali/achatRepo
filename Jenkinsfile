@@ -44,7 +44,7 @@ pipeline {
 		{
             steps 
 			{
-                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.2.20:9000 -Dsonar.login=admin -Dsonar.password=sonar'
+                sh 'mvn sonar:sonar -Dsonar.host.url=http://192.168.2.20:9000 -Dsonar.login=admin -Dsonar.password=Jawher123'
             }
         }
 		

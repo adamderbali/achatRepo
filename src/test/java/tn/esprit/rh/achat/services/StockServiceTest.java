@@ -14,7 +14,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.rh.achat.entities.Stock;
 
-@RunWith(JUnit4.class)
+
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StockServiceTest {

@@ -16,81 +16,84 @@ import java.util.Set;
 @Transactional
 public class FactureServiceImpl implements IFactureService {
 
-	@Autowired
-	FactureRepository factureRepository;
-	@Autowired
-	OperateurRepository operateurRepository;
-	@Autowired
-	DetailFactureRepository detailFactureRepository;
-	@Autowired
-	FournisseurRepository fournisseurRepository;
-	@Autowired
-	ProduitRepository produitRepository;
+    @Autowired
+    FactureRepository factureRepository;
+    @Autowired
+    OperateurRepository operateurRepository;
+    @Autowired
+    DetailFactureRepository detailFactureRepository;
+    @Autowired
+    FournisseurRepository fournisseurRepository;
+    @Autowired
+    ProduitRepository produitRepository;
     @Autowired
     ReglementServiceImpl reglementService;
-	
-	@Override
-	public List<Facture> retrieveAllFactures() {
-		List<Facture> factures = (List<Facture>) factureRepository.findAll();
-		for (Facture facture : factures) {
-			log.info(" facture : " + facture);
-		}
-		return factures;
-	}
 
-	
-	public Facture addFacture(Facture f) {
-		return factureRepository.save(f);
-	}
+    @Override
+    public List<Facture> retrieveAllFactures() {
+        List<Facture> factures = (List<Facture>) factureRepository.findAll();
+        for (Facture facture : factures) {
+            log.info(" facture : " + facture);
+        }
+        return factures;
+    }
 
-	
+    public Facture addFacture(Facture f) {
+        return factureRepository.save(f);
+    }
 
-	@Override
-	public void cancelFacture(Long factureId) {
-		// Méthode 01
-		//Facture facture = factureRepository.findById(factureId).get();
-		Facture facture = factureRepository.findById(factureId).orElse(new Facture());
-		facture.setArchivee(true);
-		factureRepository.save(facture);
-		//Méthode 02 (Avec JPQL)
-		factureRepository.updateFacture(factureId);
-	}
+    @Override
+    public void cancelFacture(Long factureId) {
+        // Méthode 01
+        // Facture facture = factureRepository.findById(factureId).get();
+        Facture facture = factureRepository.findById(factureId).orElse(new Facture());
+        facture.setArchivee(true);
+        factureRepository.save(facture);
+        // Méthode 02 (Avec JPQL)
+        factureRepository.updateFacture(factureId);
+    }
 
-	@Override
-	public Facture retrieveFacture(Long factureId) {
+    @Override
+    public Facture retrieveFacture(Long factureId) {
 
-		Facture facture = factureRepository.findById(factureId).orElse(null);
-		log.info("facture :" + facture);
-		return facture;
-	}
+        Facture facture = factureRepository.findById(factureId).orElse(null);
+        log.info("facture :" + facture);
+        return facture;
+    }
 
-	@Override
-	public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
-		Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
-		return (List<Facture>) fournisseur.getFactures();
-	}
+    @Override
+    public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
+        Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
+        if (fournisseur != null) {
+            List<Facture> factures = (List<Facture>) fournisseur.getFactures();
+            return factures;
 
-	@Override
-	public void assignOperateurToFacture(Long idOperateur, Long idFacture) throws NullPointerException{
-		Facture facture = factureRepository.findById(idFacture).orElse(null);
-		if(facture != null) {
-		    Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
-		    if(operateur != null) {
-		        operateur.getFactures().add(facture);
-	            operateurRepository.save(operateur);
-		    }
-	        
-		}
-	
-	}
+        } else {
+            return null;
+        }
 
-	@Override
-	public float pourcentageRecouvrement(Date startDate, Date endDate) {
-		float totalFacturesEntreDeuxDates = factureRepository.getTotalFacturesEntreDeuxDates(startDate,endDate);
-		float totalRecouvrementEntreDeuxDates =reglementService.getChiffreAffaireEntreDeuxDate(startDate,endDate);
-		float pourcentage=(totalRecouvrementEntreDeuxDates/totalFacturesEntreDeuxDates)*100;
-		return pourcentage;
-	}
-	
+    }
+
+    @Override
+    public void assignOperateurToFacture(Long idOperateur, Long idFacture) throws NullPointerException {
+        Facture facture = factureRepository.findById(idFacture).orElse(null);
+        if (facture != null) {
+            Operateur operateur = operateurRepository.findById(idOperateur).orElse(null);
+            if (operateur != null) {
+                operateur.getFactures().add(facture);
+                operateurRepository.save(operateur);
+            }
+
+        }
+
+    }
+
+    @Override
+    public float pourcentageRecouvrement(Date startDate, Date endDate) {
+        float totalFacturesEntreDeuxDates = factureRepository.getTotalFacturesEntreDeuxDates(startDate, endDate);
+        float totalRecouvrementEntreDeuxDates = reglementService.getChiffreAffaireEntreDeuxDate(startDate, endDate);
+        float pourcentage = (totalRecouvrementEntreDeuxDates / totalFacturesEntreDeuxDates) * 100;
+        return pourcentage;
+    }
 
 }

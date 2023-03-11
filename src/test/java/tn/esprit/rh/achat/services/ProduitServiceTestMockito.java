@@ -10,6 +10,8 @@ import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestMethodOrder;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
@@ -19,10 +21,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
 
+@RunWith(JUnit4.class)
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 @ExtendWith(MockitoExtension.class)
-public class ProduitServiceTestMockito {
+class ProduitServiceTestMockito {
 
     
     @Mock
@@ -42,7 +45,7 @@ public class ProduitServiceTestMockito {
     };
     
     @Test
-    public void testFindProduit()
+    void testFindProduit()
     {
         Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(produit));
         Produit p = produitService.retrieveProduit(1L); //produitRepository.findById(1L).get(); 

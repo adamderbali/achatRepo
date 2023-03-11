@@ -98,26 +98,20 @@ pipeline {
 				}				
 			}
         }  
-		 stage('Docker Push Image'){
+		 
+       stage('Docker Build Image')
+		{
                 steps
 				{
                     script
 					{
-                        
-                        sh 'docker login -u hmaroub -p hela22614275'
-                             
-                        sh 'docker tag  achat-1.1.2 hmaroub/achat-1.1.2:tag1'    
-                        sh 'docker push hmaroub/achat-1.1.2' 
-                        
-                        sh 'docker tag  mysql hmaroub/mysql:8'    
-                        sh 'docker push hmaroub/mysql'    
-                         
-                          
-                            
+                        sh 'docker build -t achat-1.1.2 .'
+                        sh 'docker build -t mysql .'
                     }
                    
                 }
-        }
+               
+         }
         stage('Docker-Compose')
 		{
                 steps

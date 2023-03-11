@@ -71,6 +71,34 @@ pipeline {
                 sh 'mvn install'    
             }
         }
+        stage('Deployement To Nexus')
+		{
+            steps
+			{
+				script
+				{
+					def mavenPom = readMavenPom file: 'pom.xml'
+					
+				nexusArtifactUploader artifacts:
+				[
+					[
+						artifactId: 'achat',
+						classifier: '',
+						file: "target/achat-${mavenPom.version}.jar",
+						type: 'jar'
+					]
+				], 
+				
+				credentialsId:'Nexus', 
+				groupId: 'tn.esprit.rh', 
+				nexusUrl: '192.168.56.100:8081', 
+				nexusVersion: 'nexus3', 
+				protocol: 'http', 
+				repository: 'simpleapp-release', 
+				version: "${mavenPom.version}"
+				}				
+			}
+        }  
     
 
              stage('Docker Build Image'){

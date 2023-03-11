@@ -107,7 +107,7 @@ pipeline {
                 }
         }
         stage('Docker-Compose')
-		{
+		     {
                 steps
 				{
                     script
@@ -117,7 +117,21 @@ pipeline {
                    
                 }
                
-            }      
+            } 
+            
+                post {
+                success {
+                    emailext body: 'les jobs de pipeline sont réussis !', 
+                        subject: 'Rapport de réussite de pipeline', 
+                        to: 'ghada.fridhi@esprit.tn'
+                }
+                failure {
+                    emailext body: 'les jobs de pipeline sont échoués !', 
+                        subject: 'Rapport d\'échec pipeline', 
+                        to: 'ghada.fridhi@esprit.tn'
+                }
+            }
+        }
       
     }
 }

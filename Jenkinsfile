@@ -119,7 +119,7 @@ pipeline {
                
             } 
             
-                post {
+          post {
                 success {
                     emailext body: 'les jobs de pipeline sont réussis !', 
                         subject: 'Rapport de réussite de pipeline', 
@@ -131,7 +131,6 @@ pipeline {
                         to: 'ghada.fridhi@esprit.tn'
                 }
             }
-        }
       
     }
 }

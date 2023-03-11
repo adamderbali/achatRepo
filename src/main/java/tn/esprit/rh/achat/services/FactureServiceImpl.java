@@ -7,9 +7,10 @@ import tn.esprit.rh.achat.entities.*;
 import tn.esprit.rh.achat.repositories.*;
 
 import javax.transaction.Transactional;
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 @Service
 @Slf4j
@@ -65,10 +66,10 @@ public class FactureServiceImpl implements IFactureService {
     public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
         Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
         if (fournisseur != null) {
-            return (List<Facture>) fournisseur.getFactures();
+            return new ArrayList<>();
 
         } else {
-            return null;
+            return new ArrayList<>();
         }
 
     }

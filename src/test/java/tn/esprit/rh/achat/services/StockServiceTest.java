@@ -5,13 +5,16 @@ import java.util.List;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
-import org.junit.jupiter.api.Test;
+import org.junit.Test;
 import org.junit.jupiter.api.TestMethodOrder;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import tn.esprit.rh.achat.entities.Stock;
 
+@RunWith(JUnit4.class)
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 public class StockServiceTest {
@@ -35,5 +38,5 @@ public class StockServiceTest {
 		    Stock newStock=iStockService.addStock(stock); 
 	        Assertions.assertNotNull(newStock.getIdStock());
 	    }
-	    */
+	 */   
 }

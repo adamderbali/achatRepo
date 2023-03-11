@@ -1,5 +1,7 @@
 package tn.esprit.rh.achat.services;
 
+import static org.mockito.Mockito.times;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,12 +14,14 @@ import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import lombok.extern.slf4j.Slf4j;
 import tn.esprit.rh.achat.entities.Produit;
 import tn.esprit.rh.achat.repositories.ProduitRepository;
 
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+@Slf4j
 class ProduitServiceTest {
   @Autowired
     IProduitService ps;
@@ -48,5 +52,29 @@ class ProduitServiceTest {
         Assertions.assertNotNull(p);
     }
  
+    @Test
+     void testgetProduit()
+    {
+        Mockito.when(produitRepository.findById(Mockito.anyLong())).thenReturn(Optional.of(produit));
+        Produit o = produitService.retrieveProduit(1L);
+        Assertions.assertNotNull(o);
+        log.info("get ===> " + o.toString());
+    }
+    
+    @Test
+     void testgetAllProduit()
+    {
+        Mockito.when(produitRepository.findAll()).thenReturn(listProduits);
+        List<Produit> listAllOperateurs = produitService.retrieveAllProduits();
+        Assertions.assertEquals(3, listAllOperateurs.size());
+    }
+    
+   
+    @Test
+     void testDeleteOperateur()
+    {
+        produitService.deleteProduit(4L);
+        Mockito.verify(produitRepository , times(0)).delete(produit);
+    }
 
 }

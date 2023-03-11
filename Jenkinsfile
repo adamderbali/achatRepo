@@ -118,14 +118,13 @@ pipeline {
                 }
                
             } 
-            
-        post {
+    }
+    
+      post {
         always {
             emailext body: 'Le pipeline est terminé !', 
                 subject: 'Rapport de pipeline', 
                 to: 'ghada.fridhi@esprit.tn'
         }
-    }
-      
     }
 }

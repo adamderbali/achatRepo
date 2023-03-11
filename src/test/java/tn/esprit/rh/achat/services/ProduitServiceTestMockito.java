@@ -36,8 +36,8 @@ public class ProduitServiceTestMockito {
 
     List<Produit> listProduits = new ArrayList<Produit>() {
       {
-          add(new Produit("Code2255","samsung10",3000,new Date(),new Date()));
-          add(new Produit("Code2255","samsung14",3000,new Date(),new Date()));
+          add(new Produit("is00","iphone 13",3500,new Date(),new Date()));
+          add(new Produit("is00","iphone 14 pro max",5000,new Date(),new Date()));
       }
     };
     

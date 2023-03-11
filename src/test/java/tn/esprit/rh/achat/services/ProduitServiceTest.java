@@ -6,13 +6,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.junit.runner.RunWith;
-import org.junit.runners.JUnit4;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
@@ -22,8 +18,6 @@ import tn.esprit.rh.achat.repositories.ProduitRepository;
 
 @SpringBootTest
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-@RunWith(JUnit4.class)
-@ExtendWith(MockitoExtension.class)
 class ProduitServiceTest {
   @Autowired
     IProduitService ps;

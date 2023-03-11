@@ -1,7 +1,7 @@
 version: "3"
 services:
     backend:
-        image: hmaroub/achat-1.0.1:tag1
+        image: hmaroub/achat-1.1.2:tag1
         ports:
             - "8089:8089"
         restart: unless-stopped

@@ -69,6 +69,6 @@ public class ProduitRestController {
 	public float getRevenuBrutProduit(@PathVariable("idProduit") Long idProduit,
 			@PathVariable(name = "startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date startDate,
 
-	}*/
+	*/
 
 }

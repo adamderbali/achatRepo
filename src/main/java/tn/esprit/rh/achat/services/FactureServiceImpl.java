@@ -66,7 +66,7 @@ public class FactureServiceImpl implements IFactureService {
     public List<Facture> getFacturesByFournisseur(Long idFournisseur) {
         Fournisseur fournisseur = fournisseurRepository.findById(idFournisseur).orElse(null);
         if (fournisseur != null) {
-            return new ArrayList<>();
+            return (List<Facture>) fournisseur.getFactures();
 
         } else {
             return new ArrayList<>();
